@@ -1,504 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Invitation - Prathiksha & Hariprasad</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Playfair Display', serif;
-            background: linear-gradient(135deg, #4a148c 0%, #6a1b9a 30%, #8e24aa 70%, #9c27b0 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Background pattern */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
-            z-index: 1;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .invitation-card {
-            background: linear-gradient(145deg, #4a148c, #6a1b9a);
-            border-radius: 20px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            animation: slideIn 1.2s ease-out;
-            position: relative;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(50px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        /* Decorative border pattern */
-        .invitation-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 40px;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                rgba(255, 215, 0, 0.6) 10%, 
-                rgba(255, 215, 0, 0.8) 20%,
-                transparent 30%,
-                rgba(255, 215, 0, 0.8) 40%,
-                rgba(255, 215, 0, 0.6) 50%,
-                rgba(255, 215, 0, 0.8) 60%,
-                transparent 70%,
-                rgba(255, 215, 0, 0.8) 80%,
-                rgba(255, 215, 0, 0.6) 90%,
-                transparent 100%
-            );
-            z-index: 2;
-        }
-
-        .invitation-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 40px;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                rgba(255, 215, 0, 0.6) 10%, 
-                rgba(255, 215, 0, 0.8) 20%,
-                transparent 30%,
-                rgba(255, 215, 0, 0.8) 40%,
-                rgba(255, 215, 0, 0.6) 50%,
-                rgba(255, 215, 0, 0.8) 60%,
-                transparent 70%,
-                rgba(255, 215, 0, 0.8) 80%,
-                rgba(255, 215, 0, 0.6) 90%,
-                transparent 100%
-            );
-            z-index: 2;
-        }
-
-        /* Floral decorations */
-        .floral-corner {
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            background: radial-gradient(circle, rgba(255, 193, 158, 0.8) 20%, rgba(186, 104, 200, 0.6) 60%, transparent 80%);
-            border-radius: 50%;
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .floral-corner.top-left {
-            top: 20px;
-            left: 20px;
-            animation-delay: 0s;
-        }
-
-        .floral-corner.top-right {
-            top: 20px;
-            right: 20px;
-            animation-delay: 1s;
-        }
-
-        .floral-corner.bottom-left {
-            bottom: 20px;
-            left: 20px;
-            animation-delay: 2s;
-        }
-
-        .floral-corner.bottom-right {
-            bottom: 20px;
-            right: 20px;
-            animation-delay: 3s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) scale(1); }
-            50% { transform: translateY(-15px) scale(1.05); }
-        }
-
-        .header {
-            padding: 60px 40px 40px 40px;
-            text-align: center;
-            position: relative;
-            z-index: 3;
-        }
-
-        .om-symbol {
-            font-size: 3rem;
-            color: #ffd700;
-            margin-bottom: 30px;
-            animation: glow 3s ease-in-out infinite alternate;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
-        }
-
-        @keyframes glow {
-            from { text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.6); }
-            to { text-shadow: 0 0 30px rgba(255, 215, 0, 1), 0 0 40px rgba(255, 215, 0, 0.8); }
-        }
-
-        .families-text {
-            color: #f8bbd9;
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-            font-weight: 400;
-            letter-spacing: 1px;
-        }
-
-        .couple-names {
-            color: #ffd700;
-            font-family: 'Cinzel', serif;
-            font-size: 2.8rem;
-            font-weight: 600;
-            line-height: 1.2;
-            margin: 30px 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            animation: shimmer 4s ease-in-out infinite;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); }
-            50% { text-shadow: 2px 2px 8px rgba(255, 215, 0, 0.8), 0 0 15px rgba(255, 215, 0, 0.3); }
-        }
-
-        .ampersand {
-            color: #f8bbd9;
-            font-size: 2rem;
-            margin: 0 15px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        .invitation-text {
-            color: #f8bbd9;
-            font-size: 1.1rem;
-            margin: 30px 0;
-            line-height: 1.6;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-        }
-
-        .event-details {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 40px 30px;
-            margin: 40px 30px;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            position: relative;
-            z-index: 3;
-        }
-
-        .date-section {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .month {
-            color: #ffd700;
-            font-size: 1.8rem;
-            font-weight: 600;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
-        }
-
-        .date-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-            margin: 20px 0;
-        }
-
-        .day, .time {
-            color: #f8bbd9;
-            font-size: 1.2rem;
-            font-weight: 500;
-            text-align: center;
-            border-bottom: 2px solid #ffd700;
-            padding-bottom: 5px;
-            min-width: 100px;
-        }
-
-        .date-number {
-            color: #ffd700;
-            font-size: 4rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .year {
-            color: #f8bbd9;
-            font-size: 1.5rem;
-            margin-top: 10px;
-            letter-spacing: 2px;
-        }
-
-        .venue-section {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .at-text {
-            color: #f8bbd9;
-            font-size: 1.2rem;
-            font-style: italic;
-            margin: 20px 0;
-        }
-
-        .venue-name {
-            color: #ffd700;
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .venue-address {
-            color: #f8bbd9;
-            font-size: 1.1rem;
-            line-height: 1.4;
-        }
-
-        .blessing-text {
-            text-align: center;
-            color: #f8bbd9;
-            font-size: 1.1rem;
-            margin: 40px 30px 30px 30px;
-            font-style: italic;
-            position: relative;
-            z-index: 3;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 60px;
-            color: #f8bbd9;
-            font-style: italic;
-            position: relative;
-            z-index: 3;
-        }
-
-        .contact-info {
-            background: rgba(255, 215, 0, 0.1);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 30px;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            position: relative;
-            z-index: 3;
-        }
-
-        .contact-info h3 {
-            color: #ffd700;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-
-        .contact-info p {
-            color: #f8bbd9;
-            margin: 8px 0;
-            font-size: 1rem;
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            
-            .couple-names {
-                font-size: 2.2rem;
-            }
-            
-            .header {
-                padding: 50px 25px 30px 25px;
-            }
-            
-            .event-details {
-                margin: 30px 15px;
-                padding: 30px 20px;
-            }
-            
-            .date-row {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .date-number {
-                font-size: 3rem;
-            }
-        }
-
-        /* Animation for interactive elements */
-        .invitation-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        /* Sparkle effect */
-        .sparkle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #ffd700;
-            border-radius: 50%;
-            animation: sparkle 3s linear infinite;
-        }
-
-        @keyframes sparkle {
-            0%, 100% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1); }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <title>Wedding Invitation - Prathiksha &amp; Hariprasad</title>
+  <meta name="theme-color" content="#8B0000" />
+  <meta name="description" content="You are invited to the wedding of Prathiksha &amp; Hariprasad on 24 Oct 2025 at Sanjeeva Shetty Multipurpose Hall, Moodabidri." />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&amp;family=Tangerine:wght@400;700&amp;family=Playfair+Display:wght@400;500;700;900&amp;family=Noto+Sans+Devanagari:wght@400;600&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-    <!-- Floral corners -->
-    <div class="floral-corner top-left"></div>
-    <div class="floral-corner top-right"></div>
-    <div class="floral-corner bottom-left"></div>
-    <div class="floral-corner bottom-right"></div>
+  <!-- Curtain reveal effect -->
+  <div class="curtain-left" aria-hidden="true"></div>
+  <div class="curtain-right" aria-hidden="true"></div>
+  
+  <!-- Canvas-based sparkles and petals layer -->
+  <canvas id="sparkles" aria-hidden="true"></canvas>
+  <canvas id="petals" aria-hidden="true"></canvas>
 
-    <div class="container">
-        <div class="invitation-card">
-            <div class="header">
-                <div class="om-symbol">ॐ</div>
-                <p class="families-text">Together with their families</p>
-                
-                <div class="couple-names">
-                    PRATHIKSHA
-                    <div class="ampersand">&</div>
-                    HARIPRASAD
-                </div>
-                
-                <p class="invitation-text">
-                    cordially invite you to join the occasion of<br>
-                    their joyous commitment on
-                </p>
-            </div>
+  <!-- Decorative mandala background -->
+  <div class="mandala-bg" aria-hidden="true"></div>
+  
+  <!-- Rangoli corners -->
+  <div class="rangoli-corner top-left" aria-hidden="true">
+    <div class="rangoli-pattern"></div>
+  </div>
+  <div class="rangoli-corner top-right" aria-hidden="true">
+    <div class="rangoli-pattern"></div>
+  </div>
+  <div class="rangoli-corner bottom-left" aria-hidden="true">
+    <div class="rangoli-pattern"></div>
+  </div>
+  <div class="rangoli-corner bottom-right" aria-hidden="true">
+    <div class="rangoli-pattern"></div>
+  </div>
 
-            <div class="event-details">
-                <div class="date-section">
-                    <div class="month">OCTOBER</div>
-                    <div class="date-row">
-                        <div class="day">FRIDAY</div>
-                        <div class="date-number">24</div>
-                        <div class="time">@ 11:42AM</div>
-                    </div>
-                    <div class="year">2025</div>
-                </div>
-
-                <div class="venue-section">
-                    <div class="at-text">at</div>
-                    <div class="venue-name">SANJEEVA SHETTY<br>MULTIPURPOSE HALL</div>
-                    <div class="venue-address">KADALAKERE, MOODABIDRI</div>
-                </div>
-            </div>
-
-            <div class="blessing-text">
-                Presents in Blessings only
-            </div>
-
-<!--             <div class="contact-info">
-                <h3>Contact Information</h3>
-                <p><i class="fas fa-phone"></i> For details: +91 98765 43210</p>
-                <p><i class="fas fa-envelope"></i> prathiksha.wedding@email.com</p>
-            </div> -->
-
-            <div class="footer">
-                🙏 Your presence will make our day complete 🙏
-            </div>
-        </div>
+  <!-- Floating diyas -->
+  <div class="diya diya-1" aria-hidden="true">
+    <div class="diya-base">
+      <svg width="40" height="30" viewBox="0 0 40 30" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 25 C10 25, 5 20, 5 15 C5 10, 10 5, 20 5 C30 5, 35 10, 35 15 C35 20, 30 25, 20 25" fill="#D4AF37" stroke="#B8860B" stroke-width="1"/>
+        <ellipse cx="20" cy="15" rx="12" ry="8" fill="#FFD700"/>
+      </svg>
     </div>
+    <div class="flame"></div>
+  </div>
+  <div class="diya diya-2" aria-hidden="true">
+    <div class="diya-base">
+      <svg width="40" height="30" viewBox="0 0 40 30" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 25 C10 25, 5 20, 5 15 C5 10, 10 5, 20 5 C30 5, 35 10, 35 15 C35 20, 30 25, 20 25" fill="#D4AF37" stroke="#B8860B" stroke-width="1"/>
+        <ellipse cx="20" cy="15" rx="12" ry="8" fill="#FFD700"/>
+      </svg>
+    </div>
+    <div class="flame"></div>
+  </div>
+  <div class="diya diya-3" aria-hidden="true">
+    <div class="diya-base">
+      <svg width="40" height="30" viewBox="0 0 40 30" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 25 C10 25, 5 20, 5 15 C5 10, 10 5, 20 5 C30 5, 35 10, 35 15 C35 20, 30 25, 20 25" fill="#D4AF37" stroke="#B8860B" stroke-width="1"/>
+        <ellipse cx="20" cy="15" rx="12" ry="8" fill="#FFD700"/>
+      </svg>
+    </div>
+    <div class="flame"></div>
+  </div>
+  <div class="diya diya-4" aria-hidden="true">
+    <div class="diya-base">
+      <svg width="40" height="30" viewBox="0 0 40 30" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 25 C10 25, 5 20, 5 15 C5 10, 10 5, 20 5 C30 5, 35 10, 35 15 C35 20, 30 25, 20 25" fill="#D4AF37" stroke="#B8860B" stroke-width="1"/>
+        <ellipse cx="20" cy="15" rx="12" ry="8" fill="#FFD700"/>
+      </svg>
+    </div>
+    <div class="flame"></div>
+  </div>
 
-    <!-- Sparkle elements -->
-    <div class="sparkle" style="top: 15%; left: 25%; animation-delay: 0s;"></div>
-    <div class="sparkle" style="top: 25%; right: 20%; animation-delay: 1s;"></div>
-    <div class="sparkle" style="bottom: 30%; left: 15%; animation-delay: 2s;"></div>
-    <div class="sparkle" style="bottom: 15%; right: 30%; animation-delay: 3s;"></div>
+  <div class="container">
+    <main class="invitation-card" role="main" aria-labelledby="invite-title">
+      <!-- Decorative arch top -->
+      <div class="arch-decoration" aria-hidden="true">
+        <svg viewBox="0 0 320 60" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,60 Q80,0 160,0 T320,60" fill="none" stroke="url(#archGradient)" stroke-width="3"/>
+          <defs>
+            <linearGradient id="archGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+              <stop offset="50%" style="stop-color:#FFA500;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#FFD700;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
 
-    <script>
-        // Add dynamic sparkles
-        function createSparkle() {
-            const sparkle = document.createElement('div');
-            sparkle.className = 'sparkle';
-            sparkle.style.left = Math.random() * 100 + '%';
-            sparkle.style.top = Math.random() * 100 + '%';
-            sparkle.style.animationDelay = Math.random() * 3 + 's';
-            document.body.appendChild(sparkle);
+      <header class="header">
+        <!-- Ganesha symbol -->
+        <div class="ganesha-symbol" aria-hidden="true">
+          <span class="om-symbol">ॐ</span>
+          <span class="ganesha-text">श्री गणेशाय नमः</span>
+          <span class="om-symbol">ॐ</span>
+        </div>
+        
+        <!-- Sanskrit blessing -->
+        <div class="sanskrit-blessing" aria-hidden="true">
+          मंगलम् भगवान् विष्णुः मंगलम् गरुड़ध्वजः।<br/>
+          मंगलम् पुण्डरीकाक्षो मंगलायतनो हरिः॥
+        </div>
 
-            setTimeout(() => {
-                if (document.body.contains(sparkle)) {
-                    document.body.removeChild(sparkle);
-                }
-            }, 3000);
-        }
+        <p class="families-text">With the blessings of the Almighty &amp; our elders</p>
 
-        setInterval(createSparkle, 2000);
+        <h1 id="invite-title" class="couple-names" aria-label="Prathiksha and Hariprasad">
+          <span class="bride-name">
+            <span class="name-english">PRATHIKSHA</span>
+            <span class="name-devanagari">प्रथिक्षा</span>
+          </span>
+          <span class="ampersand" aria-hidden="true">
+            <svg class="heart-symbol" width="40" height="36" viewBox="0 0 40 36" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 33.5 C18.5 32.2, 3 20, 3 11 C3 5, 7 1, 12 1 C15.5 1, 18.5 3, 20 5 C21.5 3, 24.5 1, 28 1 C33 1, 37 5, 37 11 C37 20, 21.5 32.2, 20 33.5Z" 
+                    fill="url(#heartGradient)" stroke="#FFD700" stroke-width="1"/>
+              <defs>
+                <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#FF69B4;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#FF1493;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </span>
+          <span class="groom-name">
+            <span class="name-english">HARIPRASAD</span>
+            <span class="name-devanagari">हरिप्रसाद</span>
+          </span>
+        </h1>
 
-        // Add entrance animation
-        window.addEventListener('load', function() {
-            const card = document.querySelector('.invitation-card');
-            const elements = card.querySelectorAll('.header > *, .event-details, .blessing-text, .contact-info, .footer');
-            
-            elements.forEach((element, index) => {
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(30px)';
-                
-                setTimeout(() => {
-                    element.style.transition = 'all 0.8s ease';
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }, index * 200);
-            });
-        });
+        <p class="invitation-text">
+          cordially invite you to grace the auspicious occasion<br/>
+          of their wedding ceremony
+        </p>
+      </header>
 
-        // Add hover effect for Om symbol
-        document.querySelector('.om-symbol').addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.2) rotate(360deg)';
-            this.style.transition = 'all 0.5s ease';
-        });
+      <div class="divider" aria-hidden="true">
+        <div class="divider-ornament left">✦</div>
+        <svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lotus divider">
+          <g fill="none" stroke="url(#lotusGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 20 H40"/>
+            <path d="M80 20 H110"/>
+            <!-- Enhanced lotus -->
+            <path d="M60 30c6-5 10-10 10-15 0-6-5-10-10-10s-10 4-10 10c0 5 4 10 10 15z"/>
+            <path d="M60 8c4 4 5 7 5 10 0 3-1 5-5 8"/>
+            <path d="M60 8c-4 4-5 7-5 10 0 3 1 5 5 8"/>
+            <circle cx="60" cy="15" r="2" fill="url(#lotusGradient)"/>
+          </g>
+          <defs>
+            <linearGradient id="lotusGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="divider-ornament right">✦</div>
+      </div>
 
-        document.querySelector('.om-symbol').addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1) rotate(0deg)';
-        });
-    </script>
+      <section class="event-details" aria-labelledby="event-date">
+        <!-- Muhurat Section -->
+        <div class="muhurat-badge">
+          <span class="muhurat-text">शुभ मुहूर्त</span>
+          <span class="muhurat-english">Auspicious Time</span>
+        </div>
+
+        <div class="date-section">
+          <div class="month" id="event-date">OCTOBER</div>
+          <div class="date-row" aria-label="Friday, October 24, 2025 at 11:42 AM">
+            <div class="day">
+              <span class="day-text">FRIDAY</span>
+              <span class="day-hindi">शुक्रवार</span>
+            </div>
+            <div class="date-number">
+              24
+              <div class="date-year-small">2025</div>
+            </div>
+            <div class="time">
+              <span class="time-text">11:42 AM</span>
+              <span class="time-hindi">प्रातः ११:४२</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="venue-section">
+          <div class="at-text">✦ Venue ✦</div>
+          <div class="venue-name">
+            SANJEEVA SHETTY<br/>MULTIPURPOSE HALL
+          </div>
+          <div class="venue-address">
+            <svg class="location-icon" width="16" height="20" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 0C3.6 0 0 3.6 0 8c0 5.4 8 12 8 12s8-6.6 8-12c0-4.4-3.6-8-8-8zm0 11c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3z" fill="#FFD700"/>
+            </svg>
+            <span>KADALAKERE, MOODABIDRI</span>
+          </div>
+        </div>
+
+        <!-- Decorative kalash -->
+        <div class="kalash-decoration" aria-hidden="true">
+          <svg width="60" height="80" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+            <!-- Coconut -->
+            <ellipse cx="30" cy="15" rx="12" ry="15" fill="#8B4513" stroke="#654321" stroke-width="1"/>
+            <path d="M30 5 L28 0 L30 2 L32 0 Z" fill="#228B22"/>
+            <!-- Kalash pot -->
+            <path d="M15 30 Q10 35, 10 45 Q10 60, 20 70 L40 70 Q50 60, 50 45 Q50 35, 45 30 Z" 
+                  fill="url(#kalashGradient)" stroke="#B8860B" stroke-width="2"/>
+            <ellipse cx="30" cy="30" rx="15" ry="5" fill="#FFD700"/>
+            <defs>
+              <linearGradient id="kalashGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </section>
+
+      <section class="actions" aria-label="Quick actions">
+        <button id="mapsBtn" class="btn btn-primary" type="button" aria-label="Open venue in Google Maps">
+          <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/>
+          </svg>
+          <span>Get Directions</span>
+        </button>
+        <button id="calendarBtn" class="btn btn-secondary" type="button" aria-label="Add event to Google Calendar">
+          <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" fill="currentColor"/>
+          </svg>
+          <span>Save the Date</span>
+        </button>
+        <button id="shareBtn" class="btn btn-secondary" type="button" aria-label="Share invitation">
+          <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" fill="currentColor"/>
+          </svg>
+          <span>Share</span>
+        </button>
+      </section>
+
+      <!-- Family Details Section -->
+      <section class="family-section">
+        <div class="family-divider">
+          <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" class="bride-icon">
+            <circle cx="15" cy="10" r="5" fill="#FFD700"/>
+            <path d="M15 15 C8 15, 5 20, 5 25 L25 25 C25 20, 22 15, 15 15" fill="#FFD700"/>
+            <path d="M10 8 Q15 3, 20 8" fill="none" stroke="#FFD700" stroke-width="1.5"/>
+          </svg>
+          <span>Bride</span>
+          <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" class="bride-icon">
+            <circle cx="15" cy="10" r="5" fill="#FFD700"/>
+            <path d="M15 15 C8 15, 5 20, 5 25 L25 25 C25 20, 22 15, 15 15" fill="#FFD700"/>
+            <path d="M10 8 Q15 3, 20 8" fill="none" stroke="#FFD700" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="family-details">
+          <p class="family-member">Daughter of</p>
+          <p class="parent-names">Mrs. &amp; Mr. Parents Name</p>
+        </div>
+        
+        <div class="family-divider">
+          <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" class="groom-icon">
+            <circle cx="15" cy="10" r="5" fill="#FFD700"/>
+            <path d="M15 15 C8 15, 5 20, 5 25 L25 25 C25 20, 22 15, 15 15" fill="#FFD700"/>
+            <rect x="13" y="20" width="4" height="5" fill="#8B0000"/>
+          </svg>
+          <span>Groom</span>
+          <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" class="groom-icon">
+            <circle cx="15" cy="10" r="5" fill="#FFD700"/>
+            <path d="M15 15 C8 15, 5 20, 5 25 L25 25 C25 20, 22 15, 15 15" fill="#FFD700"/>
+            <rect x="13" y="20" width="4" height="5" fill="#8B0000"/>
+          </svg>
+        </div>
+        <div class="family-details">
+          <p class="family-member">Son of</p>
+          <p class="parent-names">Mrs. &amp; Mr. Parents Name</p>
+        </div>
+      </section>
+
+      <p class="blessing-text">
+        <svg class="blessing-icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z" fill="#FFD700"/>
+        </svg>
+        <span>Your Blessings are the Best Gift</span>
+        <svg class="blessing-icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z" fill="#FFD700"/>
+        </svg>
+      </p>
+
+      <footer class="footer">
+        <div class="footer-message">
+          <svg class="namaste" width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 20 Q15 15, 20 20 L18 25 Q15 23, 12 25 Z" fill="#FFD700"/>
+            <path d="M10 20 Q15 15, 20 20" fill="none" stroke="#FFD700" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span>With Love &amp; Warm Regards</span>
+          <svg class="namaste" width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 20 Q15 15, 20 20 L18 25 Q15 23, 12 25 Z" fill="#FFD700"/>
+            <path d="M10 20 Q15 15, 20 20" fill="none" stroke="#FFD700" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="footer-tagline">
+          Looking forward to celebrating with you!
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Fireworks container -->
+  <div class="fireworks-container" aria-hidden="true"></div>
+
+  <script src="js/main.js" defer></script>
 </body>
 </html>
