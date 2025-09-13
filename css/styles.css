@@ -1,0 +1,1018 @@
+/* Indian Wedding Invitation - Mobile-First, Culturally Rich Design */
+
+/* ------------------------------
+   Design Tokens - Indian Wedding Theme
+--------------------------------*/
+:root {
+  /* Rich Indian Wedding Colors */
+  --maroon-dark: #8B0000;
+  --maroon: #DC143C;
+  --maroon-light: #E85D75;
+  --red-wedding: #C41E3A;
+  
+  --gold: #FFD700;
+  --gold-dark: #FFA500;
+  --gold-light: #FFF8DC;
+  --gold-shimmer: linear-gradient(90deg, #FFD700, #FFF8DC, #FFA500, #FFF8DC, #FFD700);
+  
+  --saffron: #FF9933;
+  --cream: #FFF8DC;
+  --ivory: #FFFFF0;
+  
+  /* Text Colors */
+  --text-primary: #FFD700;
+  --text-secondary: #FFF8DC;
+  --text-dark: #4A0E0E;
+  
+  /* Card & Backgrounds */
+  --card-bg: linear-gradient(135deg, rgba(139, 0, 0, 0.95), rgba(220, 20, 60, 0.92));
+  --card-border: #FFD700;
+  
+  /* Spacing - Mobile First */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  
+  /* Typography - Mobile First */
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-base: 1rem;
+  --font-lg: 1.125rem;
+  --font-xl: 1.25rem;
+  --font-2xl: 1.5rem;
+  --font-3xl: 1.875rem;
+  --font-4xl: 2.25rem;
+  
+  /* Shadows */
+  --shadow-soft: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.4);
+  --shadow-large: 0 16px 32px rgba(0, 0, 0, 0.5);
+  --shadow-gold: 0 0 20px rgba(255, 215, 0, 0.4);
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+}
+
+/* ------------------------------
+   Base Reset & Setup
+--------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(135deg, 
+    var(--maroon-dark) 0%, 
+    var(--maroon) 25%, 
+    var(--red-wedding) 50%, 
+    var(--maroon) 75%, 
+    var(--maroon-dark) 100%);
+  min-height: 100vh;
+  color: var(--text-secondary);
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.6;
+}
+
+/* Mandala Background Pattern */
+.mandala-bg {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255, 153, 51, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 60%);
+  background-size: 100% 100%;
+  pointer-events: none;
+  z-index: 1;
+  animation: mandalaRotate 60s linear infinite;
+}
+
+@keyframes mandalaRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ------------------------------
+   Container - Mobile First
+--------------------------------*/
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding: var(--space-md);
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* ------------------------------
+   Curtain Reveal Animation
+--------------------------------*/
+.curtain-left,
+.curtain-right {
+  position: fixed;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--maroon-dark), var(--maroon));
+  z-index: 9999;
+  animation: curtainOpen 2s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+.curtain-left {
+  left: 0;
+  transform-origin: left;
+  border-right: 2px solid var(--gold);
+}
+
+.curtain-right {
+  right: 0;
+  transform-origin: right;
+  border-left: 2px solid var(--gold);
+}
+
+@keyframes curtainOpen {
+  to {
+    transform: scaleX(0);
+  }
+}
+
+/* ------------------------------
+   Canvas Layers
+--------------------------------*/
+#sparkles,
+#petals {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+#petals {
+  z-index: 3;
+}
+
+/* ------------------------------
+   Rangoli Corners - Mobile Optimized
+--------------------------------*/
+.rangoli-corner {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  z-index: 5;
+}
+
+.rangoli-pattern {
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  position: relative;
+  animation: rangoliPulse 3s ease-in-out infinite;
+}
+
+.rangoli-pattern::before,
+.rangoli-pattern::after {
+  content: '';
+  position: absolute;
+  border: 2px solid var(--gold-dark);
+  border-radius: 50%;
+}
+
+.rangoli-pattern::before {
+  width: 70%;
+  height: 70%;
+  top: 15%;
+  left: 15%;
+}
+
+.rangoli-pattern::after {
+  width: 40%;
+  height: 40%;
+  top: 30%;
+  left: 30%;
+  background: radial-gradient(circle, var(--saffron), transparent);
+}
+
+.rangoli-corner.top-left { top: 10px; left: 10px; }
+.rangoli-corner.top-right { top: 10px; right: 10px; transform: rotate(90deg); }
+.rangoli-corner.bottom-left { bottom: 10px; left: 10px; transform: rotate(-90deg); }
+.rangoli-corner.bottom-right { bottom: 10px; right: 10px; transform: rotate(180deg); }
+
+@keyframes rangoliPulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* ------------------------------
+   Floating Diyas - Mobile Optimized
+--------------------------------*/
+.diya {
+  position: fixed;
+  z-index: 4;
+  animation: diyaFloat 6s ease-in-out infinite;
+}
+
+.diya-base {
+  display: block;
+  filter: drop-shadow(0 0 10px rgba(255, 153, 51, 0.8));
+}
+
+.diya-base svg {
+  display: block;
+  width: 40px;
+  height: 30px;
+}
+
+.flame {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 12px;
+  background: radial-gradient(ellipse at bottom, #FFA500, #FF6347, transparent);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  animation: flameFlicker 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes diyaFloat {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+@keyframes flameFlicker {
+  0% { transform: translateX(-50%) scale(1) rotate(-2deg); }
+  100% { transform: translateX(-50%) scale(1.1) rotate(2deg); }
+}
+
+.diya-1 { top: 15%; left: 5%; animation-delay: 0s; }
+.diya-2 { top: 15%; right: 5%; animation-delay: 1s; }
+.diya-3 { bottom: 20%; left: 5%; animation-delay: 2s; }
+.diya-4 { bottom: 20%; right: 5%; animation-delay: 3s; }
+
+/* ------------------------------
+   Invitation Card - Mobile First
+--------------------------------*/
+.invitation-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  border: 3px solid var(--gold);
+  box-shadow: var(--shadow-large), var(--shadow-gold);
+  overflow: hidden;
+  position: relative;
+  margin: var(--space-md) auto;
+  max-width: 100%;
+  animation: cardEntrance 1s ease-out;
+  animation-delay: 2s;
+  animation-fill-mode: both;
+}
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Card Border Decoration */
+.invitation-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+}
+
+/* ------------------------------
+   Arch Decoration - Mobile
+--------------------------------*/
+.arch-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  overflow: hidden;
+}
+
+.arch-decoration svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ------------------------------
+   Header Section - Mobile First
+--------------------------------*/
+.header {
+  padding: var(--space-2xl) var(--space-lg) var(--space-xl);
+  text-align: center;
+  position: relative;
+}
+
+/* Ganesha Symbol */
+.ganesha-symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  animation: divineGlow 3s ease-in-out infinite;
+}
+
+.om-symbol {
+  font-size: var(--font-2xl);
+  color: var(--gold);
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-weight: 600;
+}
+
+.ganesha-text {
+  font-size: var(--font-lg);
+  color: var(--gold);
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+@keyframes divineGlow {
+  0%, 100% { 
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8),
+                 0 0 20px rgba(255, 215, 0, 0.6);
+  }
+  50% { 
+    text-shadow: 0 0 20px rgba(255, 215, 0, 1),
+                 0 0 30px rgba(255, 215, 0, 0.8),
+                 0 0 40px rgba(255, 215, 0, 0.6);
+  }
+}
+
+/* Sanskrit Blessing */
+.sanskrit-blessing {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: var(--font-sm);
+  color: var(--gold-light);
+  margin-bottom: var(--space-lg);
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+/* Families Text */
+.families-text {
+  font-size: var(--font-base);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+  font-style: italic;
+}
+
+/* ------------------------------
+   Couple Names - Mobile First
+--------------------------------*/
+.couple-names {
+  margin: var(--space-xl) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.bride-name,
+.groom-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name-english {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: var(--font-2xl);
+  font-weight: 700;
+  background: var(--gold-shimmer);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 3s linear infinite;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes goldShimmer {
+  to { background-position: 200% center; }
+}
+
+.name-devanagari {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: var(--font-lg);
+  color: var(--gold-light);
+  margin-top: var(--space-xs);
+  opacity: 0.9;
+}
+
+.ampersand {
+  margin: var(--space-sm) 0;
+}
+
+.heart-symbol {
+  display: inline-block;
+  width: 40px;
+  height: 36px;
+  animation: heartBeat 1.5s ease-in-out infinite;
+  vertical-align: middle;
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* Invitation Text */
+.invitation-text {
+  font-size: var(--font-base);
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-top: var(--space-lg);
+}
+
+/* ------------------------------
+   Divider - Mobile
+--------------------------------*/
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin: var(--space-lg) 0;
+  position: relative;
+}
+
+.divider-ornament {
+  color: var(--gold);
+  font-size: var(--font-xl);
+  animation: ornamentSpin 4s ease-in-out infinite;
+}
+
+@keyframes ornamentSpin {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(180deg); }
+}
+
+/* ------------------------------
+   Event Details - Mobile First
+--------------------------------*/
+.event-details {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: var(--radius-md);
+  margin: var(--space-lg) var(--space-md);
+  padding: var(--space-lg) var(--space-md);
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+/* Muhurat Badge */
+.muhurat-badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+  padding: var(--space-xs) var(--space-lg);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: var(--shadow-medium);
+}
+
+.muhurat-text {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: var(--font-sm);
+  color: var(--maroon-dark);
+  font-weight: 600;
+}
+
+.muhurat-english {
+  font-size: var(--font-xs);
+  color: var(--maroon-dark);
+}
+
+/* Date Section */
+.date-section {
+  text-align: center;
+  margin-top: var(--space-xl);
+}
+
+.month {
+  font-size: var(--font-xl);
+  color: var(--gold);
+  letter-spacing: 2px;
+  margin-bottom: var(--space-md);
+  font-weight: 600;
+}
+
+.date-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  margin: var(--space-lg) 0;
+}
+
+.day, .time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.day-text, .time-text {
+  font-size: var(--font-sm);
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.day-hindi, .time-hindi {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: var(--font-xs);
+  color: var(--gold-light);
+  margin-top: var(--space-xs);
+}
+
+.date-number {
+  font-size: var(--font-4xl);
+  color: var(--gold);
+  font-weight: 700;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  position: relative;
+}
+
+.date-year-small {
+  font-size: var(--font-sm);
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--gold-light);
+}
+
+/* Venue Section */
+.venue-section {
+  text-align: center;
+  margin-top: var(--space-xl);
+}
+
+.at-text {
+  font-size: var(--font-lg);
+  color: var(--gold);
+  margin-bottom: var(--space-md);
+  font-family: 'Tangerine', cursive;
+  font-weight: 700;
+}
+
+.venue-name {
+  font-size: var(--font-lg);
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  line-height: 1.4;
+}
+
+.venue-address {
+  font-size: var(--font-base);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+}
+
+.location-icon {
+  width: 16px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Kalash Decoration */
+.kalash-decoration {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-lg);
+  position: relative;
+}
+
+.kalash-decoration svg {
+  width: 60px;
+  height: 80px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* ------------------------------
+   Action Buttons - Mobile First
+--------------------------------*/
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  align-items: center;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-xl);
+  border: none;
+  border-radius: 50px;
+  font-size: var(--font-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 48px;
+  width: 100%;
+  max-width: 280px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: var(--maroon-dark);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--gold);
+  border: 2px solid var(--gold);
+  backdrop-filter: blur(10px);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Button Shine Effect */
+.btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  transform: rotate(45deg) translateY(100%);
+  transition: transform 0.6s;
+}
+
+.btn:hover::after {
+  transform: rotate(45deg) translateY(-100%);
+}
+
+/* ------------------------------
+   Family Section - Mobile
+--------------------------------*/
+.family-section {
+  padding: var(--space-lg);
+  text-align: center;
+}
+
+.family-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  font-size: var(--font-lg);
+  color: var(--gold);
+  margin: var(--space-lg) 0 var(--space-md);
+  font-weight: 600;
+}
+
+.bride-icon,
+.groom-icon {
+  width: 30px;
+  height: 30px;
+  opacity: 0.9;
+}
+
+.family-details {
+  margin-bottom: var(--space-lg);
+}
+
+.family-member {
+  font-size: var(--font-base);
+  color: var(--gold-light);
+  margin-bottom: var(--space-xs);
+}
+
+.parent-names {
+  font-size: var(--font-lg);
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ------------------------------
+   Blessing Text - Mobile
+--------------------------------*/
+.blessing-text {
+  text-align: center;
+  padding: var(--space-lg);
+  font-size: var(--font-base);
+  color: var(--gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.blessing-icon {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  animation: giftBounce 2s ease-in-out infinite;
+}
+
+@keyframes giftBounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-5px) rotate(-5deg); }
+  75% { transform: translateY(-5px) rotate(5deg); }
+}
+
+/* ------------------------------
+   Footer - Mobile
+--------------------------------*/
+.footer {
+  padding: var(--space-xl) var(--space-lg) var(--space-2xl);
+  text-align: center;
+}
+
+.footer-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  font-size: var(--font-base);
+  color: var(--gold);
+  margin-bottom: var(--space-md);
+}
+
+.namaste {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  animation: namastePulse 2s ease-in-out infinite;
+  vertical-align: middle;
+}
+
+@keyframes namastePulse {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(10deg); }
+}
+
+.footer-tagline {
+  font-size: var(--font-sm);
+  color: var(--gold-light);
+  font-style: italic;
+}
+
+/* ------------------------------
+   Fireworks Container
+--------------------------------*/
+.fireworks-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* ------------------------------
+   Reveal Animations
+--------------------------------*/
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ------------------------------
+   Tablet Styles (768px+)
+--------------------------------*/
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+    padding: var(--space-xl);
+  }
+  
+  .invitation-card {
+    margin: var(--space-xl) auto;
+  }
+  
+  .rangoli-corner {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .rangoli-corner.top-left { top: 20px; left: 20px; }
+  .rangoli-corner.top-right { top: 20px; right: 20px; }
+  .rangoli-corner.bottom-left { bottom: 20px; left: 20px; }
+  .rangoli-corner.bottom-right { bottom: 20px; right: 20px; }
+  
+  .diya-base svg {
+    width: 50px;
+    height: 40px;
+  }
+  
+  .flame {
+    top: 8px;
+    width: 10px;
+    height: 15px;
+  }
+  
+  .header {
+    padding: var(--space-2xl) var(--space-2xl) var(--space-xl);
+  }
+  
+  .ganesha-symbol {
+    font-size: var(--font-2xl);
+  }
+  
+  .sanskrit-blessing {
+    font-size: var(--font-base);
+  }
+  
+  .couple-names {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-xl);
+  }
+  
+  .name-english {
+    font-size: var(--font-3xl);
+  }
+  
+  .name-devanagari {
+    font-size: var(--font-xl);
+  }
+  
+  .heart-symbol {
+    font-size: var(--font-3xl);
+  }
+  
+  .date-row {
+    flex-direction: row;
+  }
+  
+  .actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .btn {
+    width: auto;
+    min-width: 180px;
+  }
+}
+
+/* ------------------------------
+   Desktop Styles (1024px+)
+--------------------------------*/
+@media (min-width: 1024px) {
+  .container {
+    max-width: 960px;
+  }
+  
+  .rangoli-corner {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .diya-base svg {
+    width: 60px;
+    height: 45px;
+  }
+  
+  .flame {
+    top: 10px;
+    width: 12px;
+    height: 18px;
+  }
+  
+  .name-english {
+    font-size: var(--font-4xl);
+  }
+  
+  .invitation-card {
+    max-width: 800px;
+  }
+}
+
+/* ------------------------------
+   Large Desktop (1440px+)
+--------------------------------*/
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1200px;
+  }
+  
+  .invitation-card {
+    max-width: 900px;
+  }
+}
+
+/* ------------------------------
+   Reduced Motion
+--------------------------------*/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .curtain-left,
+  .curtain-right {
+    display: none;
+  }
+}
+
+/* ------------------------------
+   Print Styles
+--------------------------------*/
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .diya,
+  .rangoli-corner,
+  .mandala-bg,
+  .curtain-left,
+  .curtain-right,
+  #sparkles,
+  #petals,
+  .fireworks-container {
+    display: none;
+  }
+  
+  .invitation-card {
+    box-shadow: none;
+    border: 2px solid black;
+  }
+  
+  .btn {
+    display: none;
+  }
+}
