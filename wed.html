@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation - Prathiksha & Hariprasad</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, #4a148c 0%, #6a1b9a 30%, #8e24aa 70%, #9c27b0 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Background pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .invitation-card {
+            background: linear-gradient(145deg, #4a148c, #6a1b9a);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: slideIn 1.2s ease-out;
+            position: relative;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Decorative border pattern */
+        .invitation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 215, 0, 0.6) 10%, 
+                rgba(255, 215, 0, 0.8) 20%,
+                transparent 30%,
+                rgba(255, 215, 0, 0.8) 40%,
+                rgba(255, 215, 0, 0.6) 50%,
+                rgba(255, 215, 0, 0.8) 60%,
+                transparent 70%,
+                rgba(255, 215, 0, 0.8) 80%,
+                rgba(255, 215, 0, 0.6) 90%,
+                transparent 100%
+            );
+            z-index: 2;
+        }
+
+        .invitation-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 215, 0, 0.6) 10%, 
+                rgba(255, 215, 0, 0.8) 20%,
+                transparent 30%,
+                rgba(255, 215, 0, 0.8) 40%,
+                rgba(255, 215, 0, 0.6) 50%,
+                rgba(255, 215, 0, 0.8) 60%,
+                transparent 70%,
+                rgba(255, 215, 0, 0.8) 80%,
+                rgba(255, 215, 0, 0.6) 90%,
+                transparent 100%
+            );
+            z-index: 2;
+        }
+
+        /* Floral decorations */
+        .floral-corner {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(255, 193, 158, 0.8) 20%, rgba(186, 104, 200, 0.6) 60%, transparent 80%);
+            border-radius: 50%;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .floral-corner.top-left {
+            top: 20px;
+            left: 20px;
+            animation-delay: 0s;
+        }
+
+        .floral-corner.top-right {
+            top: 20px;
+            right: 20px;
+            animation-delay: 1s;
+        }
+
+        .floral-corner.bottom-left {
+            bottom: 20px;
+            left: 20px;
+            animation-delay: 2s;
+        }
+
+        .floral-corner.bottom-right {
+            bottom: 20px;
+            right: 20px;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-15px) scale(1.05); }
+        }
+
+        .header {
+            padding: 60px 40px 40px 40px;
+            text-align: center;
+            position: relative;
+            z-index: 3;
+        }
+
+        .om-symbol {
+            font-size: 3rem;
+            color: #ffd700;
+            margin-bottom: 30px;
+            animation: glow 3s ease-in-out infinite alternate;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.6); }
+            to { text-shadow: 0 0 30px rgba(255, 215, 0, 1), 0 0 40px rgba(255, 215, 0, 0.8); }
+        }
+
+        .families-text {
+            color: #f8bbd9;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .couple-names {
+            color: #ffd700;
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin: 30px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: shimmer 4s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); }
+            50% { text-shadow: 2px 2px 8px rgba(255, 215, 0, 0.8), 0 0 15px rgba(255, 215, 0, 0.3); }
+        }
+
+        .ampersand {
+            color: #f8bbd9;
+            font-size: 2rem;
+            margin: 0 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .invitation-text {
+            color: #f8bbd9;
+            font-size: 1.1rem;
+            margin: 30px 0;
+            line-height: 1.6;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .event-details {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px 30px;
+            margin: 40px 30px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+            z-index: 3;
+        }
+
+        .date-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .month {
+            color: #ffd700;
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .date-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .day, .time {
+            color: #f8bbd9;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            border-bottom: 2px solid #ffd700;
+            padding-bottom: 5px;
+            min-width: 100px;
+        }
+
+        .date-number {
+            color: #ffd700;
+            font-size: 4rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .year {
+            color: #f8bbd9;
+            font-size: 1.5rem;
+            margin-top: 10px;
+            letter-spacing: 2px;
+        }
+
+        .venue-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .at-text {
+            color: #f8bbd9;
+            font-size: 1.2rem;
+            font-style: italic;
+            margin: 20px 0;
+        }
+
+        .venue-name {
+            color: #ffd700;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .venue-address {
+            color: #f8bbd9;
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+
+        .blessing-text {
+            text-align: center;
+            color: #f8bbd9;
+            font-size: 1.1rem;
+            margin: 40px 30px 30px 30px;
+            font-style: italic;
+            position: relative;
+            z-index: 3;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #f8bbd9;
+            font-style: italic;
+            position: relative;
+            z-index: 3;
+        }
+
+        .contact-info {
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 30px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+            z-index: 3;
+        }
+
+        .contact-info h3 {
+            color: #ffd700;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .contact-info p {
+            color: #f8bbd9;
+            margin: 8px 0;
+            font-size: 1rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .couple-names {
+                font-size: 2.2rem;
+            }
+            
+            .header {
+                padding: 50px 25px 30px 25px;
+            }
+            
+            .event-details {
+                margin: 30px 15px;
+                padding: 30px 20px;
+            }
+            
+            .date-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .date-number {
+                font-size: 3rem;
+            }
+        }
+
+        /* Animation for interactive elements */
+        .invitation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        /* Sparkle effect */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffd700;
+            border-radius: 50%;
+            animation: sparkle 3s linear infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floral corners -->
+    <div class="floral-corner top-left"></div>
+    <div class="floral-corner top-right"></div>
+    <div class="floral-corner bottom-left"></div>
+    <div class="floral-corner bottom-right"></div>
+
+    <div class="container">
+        <div class="invitation-card">
+            <div class="header">
+                <div class="om-symbol">ॐ</div>
+                <p class="families-text">Together with their families</p>
+                
+                <div class="couple-names">
+                    PRATHIKSHA
+                    <div class="ampersand">&</div>
+                    HARIPRASAD
+                </div>
+                
+                <p class="invitation-text">
+                    cordially invite you to join the occasion of<br>
+                    their joyous commitment on
+                </p>
+            </div>
+
+            <div class="event-details">
+                <div class="date-section">
+                    <div class="month">OCTOBER</div>
+                    <div class="date-row">
+                        <div class="day">FRIDAY</div>
+                        <div class="date-number">24</div>
+                        <div class="time">@ 11:42AM</div>
+                    </div>
+                    <div class="year">2025</div>
+                </div>
+
+                <div class="venue-section">
+                    <div class="at-text">at</div>
+                    <div class="venue-name">SANJEEVA SHETTY<br>MULTIPURPOSE HALL</div>
+                    <div class="venue-address">KADALAKERE, MOODABIDRI</div>
+                </div>
+            </div>
+
+            <div class="blessing-text">
+                Presents in Blessings only
+            </div>
+
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p><i class="fas fa-phone"></i> For details: +91 98765 43210</p>
+                <p><i class="fas fa-envelope"></i> prathiksha.wedding@email.com</p>
+            </div>
+
+            <div class="footer">
+                🙏 Your presence will make our day complete 🙏
+            </div>
+        </div>
+    </div>
+
+    <!-- Sparkle elements -->
+    <div class="sparkle" style="top: 15%; left: 25%; animation-delay: 0s;"></div>
+    <div class="sparkle" style="top: 25%; right: 20%; animation-delay: 1s;"></div>
+    <div class="sparkle" style="bottom: 30%; left: 15%; animation-delay: 2s;"></div>
+    <div class="sparkle" style="bottom: 15%; right: 30%; animation-delay: 3s;"></div>
+
+    <script>
+        // Add dynamic sparkles
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 3 + 's';
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                if (document.body.contains(sparkle)) {
+                    document.body.removeChild(sparkle);
+                }
+            }, 3000);
+        }
+
+        setInterval(createSparkle, 2000);
+
+        // Add entrance animation
+        window.addEventListener('load', function() {
+            const card = document.querySelector('.invitation-card');
+            const elements = card.querySelectorAll('.header > *, .event-details, .blessing-text, .contact-info, .footer');
+            
+            elements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    element.style.transition = 'all 0.8s ease';
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+
+        // Add hover effect for Om symbol
+        document.querySelector('.om-symbol').addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.2) rotate(360deg)';
+            this.style.transition = 'all 0.5s ease';
+        });
+
+        document.querySelector('.om-symbol').addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) rotate(0deg)';
+        });
+    </script>
+</body>
+</html>
